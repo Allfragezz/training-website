@@ -22,7 +22,7 @@ function Header() {
         <div className="logo-container">
           <Link to="/" className="text-white text-decoration-none d-flex align-items-center">
             <img 
-              src="/images/1619px-biber-inn-kiefersfelden-3jpg.webp" 
+              src="/images/1619px-biber-inn-kiefersfelden-3jpg.webp"
               alt="Бобер" 
               className="site-logo rounded-circle me-2"
             />
@@ -45,6 +45,9 @@ function Header() {
           </Link>
           <Link to="/photo" className={`nav-link text-white ${location.pathname === '/photo' ? 'active' : ''}`}>
             Фотографії бобрів
+          </Link>
+          <Link to="/rehabilitation" className={`nav-link text-white ${location.pathname === '/rehabilitation' ? 'active' : ''}`}>
+            Реабілітація
           </Link>
         </nav>
 
