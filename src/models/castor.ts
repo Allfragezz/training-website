@@ -1,18 +1,19 @@
 import { Schema, model } from 'mongoose';
 
-// Інтерфейс для об'єкта "Заєць"
-interface IRabbit {
-    name: string; // Ім'я зайця
-    age: number; // Вік зайця у роках
-    height: number; // Висота зайця в сантиметрах
-    weight: number; // Вага зайця в кілограмах
-    gender: 'male' | 'female'; // Стать зайця: 'male' - самець, 'female' - самка
-    description?: string; // Опис зайця (необов'язкове поле)
+// Інтерфейс для об'єкта "Бобер"
+interface ICastor {
+    name: string; // Ім'я боброви
+    age: number; // Вік бобріви у роках
+    height: number; // Висота бобріви в сантиметрах
+    weight: number; // Вага бобріви в кілограмах
+    gender: 'male' | 'female'; // Стать бобріви: 'male' - самець, 'female' - самка
+    description?: string; // Опис бобріви (необов'язкове поле)
+    waterDepth: string; // Глибина водойми, метри
     dateAdded: Date; // Дата додавання запису до бази даних
 }
 
-// Схема MongoDB для моделі "Заєць"
-const rabbitSchema = new Schema<IRabbit>({
+// Схема MongoDB для моделі "Бобер"
+const castorSchema = new Schema<ICastor>({
     name: {
         type: String,
         required: true, // Поле є обов'язковим
@@ -39,8 +40,12 @@ const rabbitSchema = new Schema<IRabbit>({
         type: Date,
         default: Date.now, // Значення за замовчуванням - поточна дата і час
     },
+    waterDepth: {
+        type: String,
+        required: true, // Поле є обов'язковим
+    },
 });
 
 // Створення моделі Mongoose на основі схеми
-export const Rabbit = model<IRabbit>('Rabbit', rabbitSchema);
-export type { IRabbit }; // Експортуємо інтерфейс для використання в інших файлах
+export const Castor = model<ICastor>('Castor', castorSchema);
+export type { ICastor }; // Експортуємо інтерфейс для використання в інших файлах
